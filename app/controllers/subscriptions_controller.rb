@@ -13,6 +13,7 @@ class SubscriptionsController < ApplicationController
         )
       else
         activate
+        render json: repo, status: :created
       end
     elsif current_user.plan_upgrade?
       render json: {}, status: :payment_required
