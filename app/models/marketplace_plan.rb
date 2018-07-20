@@ -3,9 +3,21 @@
 class MarketplacePlan
   MARKETPLACE_UPGRADE_URL = "https://www.github.com/marketplace/hound"
   PLANS = [
-    OpenStruct.new(id: "MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4xMDYx", repos: 0),
-    OpenStruct.new(id: "MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4xMDYy", repos: 4),
-    OpenStruct.new(id: "MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4xMDYz", repos: 20),
+    OpenStruct.new(
+      id: 1061,
+      repos: 0,
+      slug: "MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4xMDYx",
+    ),
+    OpenStruct.new(
+      id: 1062,
+      repos: 4,
+      slug: "MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4xMDYy",
+    ),
+    OpenStruct.new(
+      id: 1063,
+      repos: 20,
+      slug: "MDIyOk1hcmtldHBsYWNlTGlzdGluZ1BsYW4xMDYz",
+    ),
   ].freeze
 
   def initialize(owner)
@@ -33,11 +45,12 @@ class MarketplacePlan
   end
 
   def upgrade_url
-    "#{MARKETPLACE_UPGRADE_URL}/order/#{next_plan.id}?account=#{owner.name}"
+    "#{MARKETPLACE_UPGRADE_URL}/order/#{next_plan.slug}?account=#{owner.name}"
   end
 
   def downgrade_url
-    "#{MARKETPLACE_UPGRADE_URL}/order/#{previous_plan.id}?account=#{owner.name}"
+    "#{MARKETPLACE_UPGRADE_URL}/order/#{previous_plan.slug}?account=" +
+      owner.name
   end
 
   private
