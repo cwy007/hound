@@ -104,7 +104,7 @@ RSpec.describe MarketplacePlan do
 
       expect(marketplace_plan.upgrade_url).to eq(
         "#{MarketplacePlan::MARKETPLACE_UPGRADE_URL}/order/" +
-          "#{next_plan.id}?account=#{owner.name}",
+          "#{next_plan.slug}?account=#{owner.name}",
       )
     end
   end
@@ -120,7 +120,7 @@ RSpec.describe MarketplacePlan do
 
       expect(marketplace_plan.downgrade_url).to eq(
         "#{MarketplacePlan::MARKETPLACE_UPGRADE_URL}/order/" +
-          "#{previous_plan.id}?account=#{owner.name}",
+          "#{previous_plan.slug}?account=#{owner.name}",
       )
     end
   end
